@@ -24,10 +24,10 @@ function araport_blast_show() {
   drupal_add_css($module_path . '/araport-blast-app/app/styles/app.css', 'file');
 
   // filesaver.js
-  drupal_add_js($module_path . '/araport-blast-app/bower_components/FileSaver.js/FileSaver.min.js', 'file');
+  drupal_add_js($module_path . '/araport-blast-app/bower_components/FileSaver.js/FileSaver.min.js', array('type' => 'file', 'preprocess' => FALSE));
 
   // app.js
-  drupal_add_js($module_path . '/araport-blast-app/app/scripts/app.js', array('type' => 'file', 'scope' => 'footer'));
+  drupal_add_js($module_path . '/araport-blast-app/app/scripts/app.js', array('type' => 'file', 'scope' => 'footer', 'preprocess' => FALSE));
 
   return file_get_contents($module_path . '/araport-blast-app/app/app.html');
 }
