@@ -1,0 +1,3 @@
+[submodule "araport-blast-app"]
+	path = araport-blast-app
+	url = git@github.com:Arabidopsis-Information-Portal/araport-blast-app.git

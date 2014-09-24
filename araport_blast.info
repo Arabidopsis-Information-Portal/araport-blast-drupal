@@ -1,0 +1,10 @@
+name = araport_blast
+description = Run blast
+package = Araport
+version = VERSION
+core = 7.x
+dependencies[] = agave
+
+
+
+
