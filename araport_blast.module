@@ -11,13 +11,24 @@ function araport_blast_menu(){
     'description' => 'Run Blast',
     'type' => MENU_CALLBACK,
     'page callback' => 'araport_blast_show',
-    'access callback' => 'user_is_logged_in'
+    'access callback' => TRUE
   );
 
   return $items;
 }
 
 function araport_blast_show() {
+  global $user;
+
+  if ($user-> uid == 0) {
+    $output = '<div class="jumbotron"><p>You need to be logged in to run Blast!</p><p>!login or !register</p></div>';
+
+    return t($output, array(
+      '!login' => l(t('Login'), 'user/login', array('query' => drupal_get_destination(), 'attributes' => array('class' => 'btn btn-primary'))),
+      '!register' => l(t('Register for an account'), 'user/register', array('attributes' => array('class' => 'btn btn-default')))
+    ));
+  }
+
   $module_path = drupal_get_path('module', 'araport_blast');
 
   // app.css
